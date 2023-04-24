@@ -2,36 +2,52 @@
 // SEGUN CUANTO PACIENTES ATENDEREMOS, CALCULAMOS LO QUE TRABAJAREMOS
 
 
+
 function multiplicar(tiempoPaciente, numeroPacientes) {
     let resultado = tiempoPaciente * numeroPacientes;
     return resultado;
 }
+
+
 class Paciente {
-    constructor(nombre, apellido,) {
-        this.nombre = nombre.toUpperCase();
-        this.apellido = apellido.toUpperCase();
+    constructor(nombre, apellido, edad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = parseInt(edad);
     }
 }
 
-let misPacientes = [];
+let paciente0 = new Paciente("Juan","Vergara",25);
+let paciente1 = new Paciente("Sofia","Martinez",23);
+let paciente2 = new Paciente("Virginia","Tomassi", 28);
 
-let numeroPacientes = parseInt(prompt("¿Cuantos pacientes atenderemos hoy? Teniendo en cuanta que cada consulta demora 30 minutos"));
-while (isNaN(numeroPacientes)) {
-    numeroPacientes = parseInt(prompt("¿Cuantos pacientes atenderemos hoy? Teniendo en cuanta que cada consulta demora 30 minutos"));
-}
-for (let turno = 1; turno <= numeroPacientes; turno++) {
+alert("Hoy viernes atenderemos 3 pacientes y estos son sus nombres");
 
-    let nombre = prompt("Ingrese el nombre del paciente" + turno + "?");
-    let apellido = prompt("Ingrese el apellido del paciente" + turno + "?");
+misPacientes = [paciente0, paciente1, paciente2];
 
-    let unPaciente = new Paciente(nombre, apellido);
-    misPacientes.push(unPaciente);
+misPacientes.forEach(element => {
+    console.log(element)
+    
+});
 
-}
-console.log(
-    "--> La cantidad de pacientes en mí lista, es de ", misPacientes.length);
+let pacienteAusente = misPacientes.pop();
+
+alert("Surgio un inconveniente y el ultimo paciente no podra asistir a su consulta");
+console.log("Surgio un inconveniente y el ultimo paciente no podra asistir a su consulta");
+
+let pacienteDeUltimoMomento = misPacientes.push(new Paciente("Lucas","Muiño",22));
+
+alert("En el transcurso del dia un paciente solicito una consulta de emergencia, ocupando el ultimo lugar libre del paciente que cancelo");
+console.log("En el transcurso del dia un paciente solicito una consulta de emergencia, ocupando el ultimo lugar libre del paciente que cancelo");
+
+
+console.log("La lista final de pacientes es ");
+console.log(misPacientes);
+alert("La lista final de pacientes es")
+
 let tiempoPaciente = 30;
+let numeroPacientes = 3; ;
 let resultado = multiplicar(tiempoPaciente, numeroPacientes);
-alert("Segun nuestros calculos aproximadamente trabajaremos " + resultado + " minutos.");
+alert("Teniendo en cuenta que atenderemos 3 pacientes, hoy trabajaremos " + resultado + " minutos.");
 
 
