@@ -1,53 +1,33 @@
-//PRE ENTREGA NUMERO 1:
-// SEGUN CUANTO PACIENTES ATENDEREMOS, CALCULAMOS LO QUE TRABAJAREMOS
+//PRE ENTREGA NUMERO 3:
+// SEGUN LA CANTIDAD DE PACIENTES, VEREMOS LA LISTA DE PACIENTES QUE TENEMOS Y SU INFORMACION
 
+const turnos = JSON.parse(localStorage.getItem('turnos')) || [];
 
-
-function multiplicar(tiempoPaciente, numeroPacientes) {
-    let resultado = tiempoPaciente * numeroPacientes;
-    return resultado;
-}
-
-
-class Paciente {
-    constructor(nombre, apellido, edad) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = parseInt(edad);
-    }
-}
-
-let paciente0 = new Paciente("Juan","Vergara",25);
-let paciente1 = new Paciente("Sofia","Martinez",23);
-let paciente2 = new Paciente("Virginia","Tomassi", 28);
-
-alert("Hoy viernes atenderemos 3 pacientes y estos son sus nombres");
-
-misPacientes = [paciente0, paciente1, paciente2];
-
-misPacientes.forEach(element => {
-    console.log(element)
-    
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // No deja que la página se recargue al enviar el formulario
+  
+  const paciente = {
+    nombre: form.nombre.value,
+    telefono: form.telefono.value,
+    dni: form.dni.value,
+    motivoConsulta: form['motivo-consulta'].value,
+    legajo: Math.floor(Math.random() * 100000) // Genera un legajo al azar
+  };
+  
+  turnos.push(paciente);
+  localStorage.setItem('turnos', JSON.stringify(turnos));
+  actualizarListaTurnos();
+  
+  
+  form.reset(); // Limpia el formulario
 });
 
-let pacienteAusente = misPacientes.pop();
+for (let i = 0; i < localStorage.length; i++) {
+  const clave = localStorage.key(i);
+  console.log("--> En la clave " + clave + " está este dato", {
+    valor: localStorage.getItem(clave),
+  })};
 
-alert("Surgio un inconveniente y el ultimo paciente no podra asistir a su consulta");
-console.log("Surgio un inconveniente y el ultimo paciente no podra asistir a su consulta");
-
-let pacienteDeUltimoMomento = misPacientes.push(new Paciente("Lucas","Muiño",22));
-
-alert("En el transcurso del dia un paciente solicito una consulta de emergencia, ocupando el ultimo lugar libre del paciente que cancelo");
-console.log("En el transcurso del dia un paciente solicito una consulta de emergencia, ocupando el ultimo lugar libre del paciente que cancelo");
-
-
-console.log("La lista final de pacientes es ");
-console.log(misPacientes);
-alert("La lista final de pacientes es")
-
-let tiempoPaciente = 30;
-let numeroPacientes = 3; ;
-let resultado = multiplicar(tiempoPaciente, numeroPacientes);
-alert("Teniendo en cuenta que atenderemos 3 pacientes, hoy trabajaremos " + resultado + " minutos.");
 
 

@@ -1,14 +1,14 @@
-Segunda preentrega JS 2023.
+Tercer preentrega JS 2023.
 
-//Simulador interactivo, donde buscamos calcular cuando se trabajara en la jornada, dependiendo de los pacientes a atender y teniendo en cuenta que cada consulta dura 30 minutos.
+//Simulador interactivo, donde buscamos guardar datos sobre nuestros pacientes.
 
-//Tenemos una lista de 3 pacientes a atender.(Simulando una base de datos)
+//Recuperamos datos y mostramos la lista de pacientes obtenidos
 
-//En el transcurso del dia el ultimo paciente, cancela su turno. Mediante .pop() eliminamos el ultimo paciente de la lista.
+//Mediante el boton enviar, mandamos al localstorage la informacion.
 
-//Un paciente solicito una consulta de urgencia, entonces le asignamos el ultimo lugar de la lista mediante un push().
+//Mediante el boton borrar todo, limpiamos la informacion del formulario
 
-//Sabiendo que el dia de hoy ibamos a tener 3 pacientes, calculamos el tiempo a trabajar mediante una funcion.
+
 
 
 
